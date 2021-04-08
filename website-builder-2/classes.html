@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <script>
+  
+class Om {
+   
+}
+
+class Dog {
+    cry() {
+    console.log("Ham")
+}
+}
+//Clasa
+class Animal {
+//constructor  este folosit pentru atribute 
+    constructor(age) {
+        this.age = age
+    }
+    //metoda
+    
+}
+
+// Mostenire
+class RussianBlueCat extends Animal {
+ cry() {
+    console.log("Miau Miau Miau")
+}
+}
+
+// Relatie is-a
+class Cat extends Animal {
+    constructor(age, owner){
+        super(age);
+        this.age = age;
+        // has-a relation
+        this.owner = owner;
+    }
+    //suprascriere
+    cry() {
+    console.log("Miau")
+}
+}
+
+let proprietar = Om;
+// obiect 
+let dog = new Dog (1);
+let pisicaRino = new RussianBlueCat(2, proprietar);
+
+let pisicaMewoara = new Cat(2);
+let pisicaMurphy = new Cat(2);
+let pisicaTommy = new Cat(2);
+
+class MedicVeterinar extends OM{
+//Polimorfism
+verificaSunetul(animal){
+    animal.cry();
+}
+}
+
+let veterinar = new MedicVeterinar()
+
+veterinar.verificaSunetul(pisicaRino);
+veterinar.verificaSunetul(dog);
+
+//Chem o functie din clasa
+pisicaRino.cry();
+pisicaMewoara.cry();
+    </script>
+</body>
+</html>

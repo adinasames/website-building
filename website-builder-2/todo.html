@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="vue-app">
+        <h1>To Do: </h1>
+        
+
+        <ul>
+            <li v-for="item in list_things">{{item.name}}</li>
+        </ul>
+        <p>{{"Total " + list_things.length}}</p>
+        <input v-model="input_message" placeholder="What do you need to do?">
+
+        <button v-on:click="appendItem" >Save</button>
+
+    </div>
+
+    <script>
+
+        class Todo{
+            constructor(name){
+                this.name = name;
+                this.isDone = false;
+            }
+        }
+
+        var app = new Vue ({
+            el: ".vue-app",
+            data:{
+                input_message: ' ',
+                list_things: [
+                    new Todo("Terminale"), 
+                    new Todo ("Cashout")
+                ],
+                done_todos: [0, 1, 0]
+              
+                
+            },
+            methods: {
+                appendItem: function() {
+                    this.list_things.push(new Todo (this.input_message));
+                    this.input_message = " "
+                },
+               
+            }
+        })
+
+    </script>
+
+
+</body>
+</html>
