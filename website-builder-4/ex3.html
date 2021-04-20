@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ex3.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="ex3.js" defer ></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+<body>
+    
+    <div id="products">
+        <p>Max Price: ({{ value }}) {{ productsCount }}</p>
+        <input type="range" name="range" id="price" min="0" max="500" v-model="value">
+        <div id="cart">
+            <span style="font-size:24px" class="fa">&#xf07a;</span>
+            <p>{{cartValue.length + ' products'}}</p>
+            <p> {{ 'Total Price:' +totalPriceCart}}$</p>
+
+        </div>
+
+        <product-list :products="filter" @add-to-cart-event = "addToCart"></product-list>
+
+        
+    </div>
+
+</body>
+</html>
