@@ -76,7 +76,7 @@ new Vue({
         value: 0,
         cartValue: [],
         totalPrice: 0,
-
+        productsSearch: "",
     
     },
     methods: {
@@ -86,8 +86,21 @@ new Vue({
     },
     computed: {
         filter() {
-            return this.productsArray.filter(item => Number(item.price) <= this.value)
+            
+            return this.productsArray.filter(item => Number(item.price) < this.value)
         },
+
+        filterProductsByName() {
+            console.log(this.productsSearch);
+            if(this.productsSearch.lenght > 3){
+                return this.productsArray.filter(product => product.name.includes(this.productsSearch))
+            }
+            else {
+                return this.productsArray.filter(item => Number(item.price) < this.value)
+            }
+
+        },
+
         productsCount() {
             return this.filter.length ? this.filter.length + ' Products' : 'No Products'
         },
