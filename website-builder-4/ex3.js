@@ -1,3 +1,6 @@
+import "https://unpkg.com/vue/dist/vue.js"
+import "https://unpkg.com/vue-router/dist/vue-router.js"
+
 Vue.component('product-list', {
     props: ['products'],
     template: `  <ul>
@@ -10,10 +13,37 @@ Vue.component('product-list', {
     </li>
 </ul>`,
 
-}),
+})
+
+const Home = {
+    template: '<div>Go Home</div>'
+}
+
+const PageNotFount = {
+    template: '<div> Page  {{route.}}not found </div>'
+}
+
+
+const Cart = {
+    template: '<div> Cartul este aici!</div>'
+}
+
+
+const ecom_router = new VueRouter({
+    routers: [
+        {path: '*', component: product-list},
+        {path: '/cart', component: Cart},
+        {path: '/', component: Home},
+        {path: '/notFound', component: PageNotFound}
+    ]
+})
+
+
+
 
 new Vue({
     el: '#products',
+    router: ecom_router,
     data: {
         productsArray:
             [{

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <transition name="fade" v-if="show">
+            <div class="faded">
+                Se vede sau nu
+            </div>
+        </transition>
+
+        <transition name="bounce">
+            <div class="bounced">
+                Element care face bounce
+            </div>
+
+        </transition>
+
+        <button @click="switchShow()">
+            Apasa-l
+        </button>
+    </div>
+
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                show: false,
+            },
+            methods: {
+                switchShow() {
+                    this.show = !this.show
+                }
+            }
+        })
+    </script>
+
+    <style>
+        .fade-enter {
+            opacity: 0;
+        }
+
+        .fade-leave {
+            opacity: 1;
+        }
+        .bounce-enter{
+            animation-duration: 1s;
+
+        }
+        .bounce-leave{
+            animation-duration: 1s;
+        }
+    </style>
+</body>
+
+</html>
